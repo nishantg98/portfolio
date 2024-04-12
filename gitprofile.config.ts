@@ -33,7 +33,7 @@ const CONFIG = {
       // To hide the `External Projects` section, keep it empty.
       projects: [
         {
-          title: 'Project Name',
+          title: '',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut.',
           imageUrl:
@@ -41,7 +41,7 @@ const CONFIG = {
           link: 'https://example.com',
         },
         {
-          title: 'Project Name',
+          title: '',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut.',
           imageUrl:
@@ -73,7 +73,7 @@ const CONFIG = {
     telegram: '',
     website: '',
     phone: '',
-    email: 'nishantg98@gmail.com',
+    email: 'nishantg2798@gmail.com',
   },
   resume: {
     fileUrl:
@@ -101,14 +101,14 @@ const CONFIG = {
       position: 'Associate DevOps Engineer',
       from: 'March 2024',
       to: 'Present',
-      companyLink: '',
+      companyLink: 'https://successive.tech/',
     },
     {
       company: 'Successive Digital',
       position: 'Associate DevOps Engineer',
       from: 'October 2020',
       to: 'August 2022',
-      companyLink: '',
+      companyLink: 'https://successive.tech/',
     },
   ],
   certifications: [
@@ -157,7 +157,7 @@ const CONFIG = {
   blog: {
     source: 'medium', // medium | dev
     username: 'nishantg2798', // to hide blog section, keep it empty
-    limit: 2, // How many articles to display. Max is 10.
+    limit: 1, // How many articles to display. Max is 10.
   },
   googleAnalytics: {
     id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
