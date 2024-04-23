@@ -113,10 +113,16 @@ const CONFIG = {
   ],
   certifications: [
     {
+      name: 'AWS Certified Cloud Practitioner',
+      body: '',
+      year: 'Apr 2024',
+      link: 'https://www.credly.com/badges/527bf7b0-2888-4413-9773-dc414524a3fd/public_url',
+    },
+    {
       name: 'Microsoft Azure Fundamentals (AZ-900)',
       body: '',
-      year: 'March 2023',
-      link: '',
+      year: 'Feb 2023',
+      link: 'https://www.credly.com/badges/2377fc5e-0b92-42ef-83fc-324637d5a102/public_url',
     },
   ],
   educations: [
@@ -157,7 +163,7 @@ const CONFIG = {
   blog: {
     source: 'medium', // medium | dev
     username: 'nishantg2798', // to hide blog section, keep it empty
-    limit: 1, // How many articles to display. Max is 10.
+    limit: 2, // How many articles to display. Max is 10.
   },
   googleAnalytics: {
     id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
