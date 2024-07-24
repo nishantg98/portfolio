@@ -25,30 +25,30 @@ const CONFIG = {
       },
       manual: {
         // Properties for manually specifying projects
-        projects: [''], // List of repository names to display. example: ['nishantg98/my-project1', 'nishantg98/my-project2']
+        projects: ['nishantg98/task-master-pro', 'nishantg98/Boardgame'], // List of repository names to display. example: ['nishantg98/my-project1', 'nishantg98/my-project2']
       },
     },
     external: {
-      header: '',
-      // To hide the `External Projects` section, keep it empty.
-      projects: [
-        {
-          title: '',
-          description:
-            '',
-          imageUrl:
-            '',
-          link: '',
-        },
-        {
-          title: '',
-          description:
-            '',
-          imageUrl:
-            '',
-          link: '',
-        },
-      ],
+      // header: '',
+      // // To hide the `External Projects` section, keep it empty.
+      // projects: [
+      //   {
+      //     title: '',
+      //     description:
+      //       '',
+      //     imageUrl:
+      //       '',
+      //     link: '',
+      //   },
+      //   {
+      //     title: '',
+      //     description:
+      //       '',
+      //     imageUrl:
+      //       '',
+      //     link: '',
+      //   },
+      // ],
     },
   },
   seo: {
@@ -112,6 +112,12 @@ const CONFIG = {
     },
   ],
   certifications: [
+    {
+      name: 'Harshicorp Certified - Terraform Associate (003)',
+      body: '',
+      year: 'Jul 2024',
+      link: 'https://www.credly.com/badges/6a5713e7-4b19-4b8f-b76b-c5bec22cd324/public_url',
+    },
     {
       name: 'AWS Certified Cloud Practitioner',
       body: '',
