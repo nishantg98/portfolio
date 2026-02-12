@@ -97,10 +97,9 @@ const ThemeChanger = ({
                     ),
                   ].map((item, index) => (
                     <li key={index}>
-                      {}
                       <a
                         onClick={(e) => changeTheme(e, item)}
-                        className={`${theme === item ? 'active' : ''}`}
+                        className={`${theme === item ? 'active' : ''} cursor-pointer`}
                       >
                         <span className="opacity-60 capitalize">
                           {item === themeConfig.defaultTheme ? 'Default' : item}

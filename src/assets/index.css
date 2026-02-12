@@ -90,3 +90,304 @@ svg {
     opacity: 1;
   }
 }
+
+/* ========== DevOps Portfolio Custom Animations ========== */
+
+/* Slide up animation for cards */
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient background animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animate {
+  background: linear-gradient(-45deg, #0EA5E9, #10B981, #F59E0B, #8B5CF6);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Pulse glow effect for important elements */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(14, 165, 233, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.8), 0 0 30px rgba(14, 165, 233, 0.4);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Hover lift effect for cards */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth scale animation */
+.scale-hover {
+  transition: transform 0.2s ease-in-out;
+}
+
+.scale-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Badge bounce animation */
+@keyframes badgeBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.badge-bounce:hover {
+  animation: badgeBounce 0.6s ease-in-out;
+}
+
+/* Shimmer effect for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced card styles */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Skill badge glow effect */
+.skill-badge {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+/* Custom scrollbar for DevOps theme */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0EA5E9, #10B981);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #10B981, #F59E0B);
+}
+
+/* Typing animation for hero text */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* Float animation for icons */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Stagger animation for lists */
+.stagger-item {
+  animation: slideUp 0.6s ease-out backwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* DevOps themed gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0EA5E9, #10B981, #F59E0B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Professional enhancements for modern portfolio */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Smooth page transitions */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Better card shadows */
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Section headings */
+.card-title {
+  letter-spacing: -0.025em;
+}
+
+/* Better text contrast */
+.text-base-content {
+  color: hsl(var(--bc) / 0.9);
+}
+
+/* Animated pulse for live elements */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse {
+  animation: pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Better link hover states */
+a:not(.btn) {
+  transition: all 0.2s ease;
+}
+
+a:not(.btn):hover {
+  opacity: 0.8;
+}
+
+/* Professional button styles */
+.btn {
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Badge improvements */
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+  h2 {
+    font-size: 1.875rem;
+  }
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Better focus states */
+*:focus-visible {
+  outline: 2px solid hsl(var(--p));
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

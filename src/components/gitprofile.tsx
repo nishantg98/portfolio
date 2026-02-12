@@ -15,21 +15,19 @@ import { SanitizedConfig } from '../interfaces/sanitized-config';
 import ErrorPage from './error-page';
 import HeadTagEditor from './head-tag-editor';
 import { DEFAULT_THEMES } from '../constants/default-themes';
-import ThemeChanger from './theme-changer';
 import { BG_COLOR } from '../constants';
 import AvatarCard from './avatar-card';
 import { Profile } from '../interfaces/profile';
 import DetailsCard from './details-card';
 import SkillCard from './skill-card';
-import ExperienceCard from './experience-card';
-import EducationCard from './education-card';
-import CertificationCard from './certification-card';
-import { GithubProject } from '../interfaces/github-project';
-import GithubProjectCard from './github-project-card';
-import ExternalProjectCard from './external-project-card';
-import BlogCard from './blog-card';
 import Footer from './footer';
-import PublicationCard from './publication-card';
+import HeroBanner from './hero-banner';
+import AboutSection from './about-section';
+import ProfessionalTimeline from './professional-timeline';
+import CertificationShowcase from './certification-showcase';
+import ContactSection from './contact-section';
+import AchievementsSection from './achievements-section';
+import ProjectsShowcase from './projects-showcase';
 
 /**
  * Renders the GitProfile component.
@@ -45,57 +43,6 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [error, setError] = useState<CustomError | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
-
-  const getGithubProjects = useCallback(
-    async (publicRepoCount: number): Promise<GithubProject[]> => {
-      if (sanitizedConfig.projects.github.mode === 'automatic') {
-        if (publicRepoCount === 0) {
-          return [];
-        }
-
-        const excludeRepo =
-          sanitizedConfig.projects.github.automatic.exclude.projects
-            .map((project) => `+-repo:${project}`)
-            .join('');
-
-        const query = `user:${sanitizedConfig.github.username}+fork:${!sanitizedConfig.projects.github.automatic.exclude.forks}${excludeRepo}`;
-        const url = `https://api.github.com/search/repositories?q=${query}&sort=${sanitizedConfig.projects.github.automatic.sortBy}&per_page=${sanitizedConfig.projects.github.automatic.limit}&type=Repositories`;
-
-        const repoResponse = await axios.get(url, {
-          headers: { 'Content-Type': 'application/vnd.github.v3+json' },
-        });
-        const repoData = repoResponse.data;
-
-        return repoData.items;
-      } else {
-        if (sanitizedConfig.projects.github.manual.projects.length === 0) {
-          return [];
-        }
-        const repos = sanitizedConfig.projects.github.manual.projects
-          .map((project) => `+repo:${project}`)
-          .join('');
-
-        const url = `https://api.github.com/search/repositories?q=${repos}&type=Repositories`;
-
-        const repoResponse = await axios.get(url, {
-          headers: { 'Content-Type': 'application/vnd.github.v3+json' },
-        });
-        const repoData = repoResponse.data;
-
-        return repoData.items;
-      }
-    },
-    [
-      sanitizedConfig.github.username,
-      sanitizedConfig.projects.github.mode,
-      sanitizedConfig.projects.github.manual.projects,
-      sanitizedConfig.projects.github.automatic.sortBy,
-      sanitizedConfig.projects.github.automatic.limit,
-      sanitizedConfig.projects.github.automatic.exclude.forks,
-      sanitizedConfig.projects.github.automatic.exclude.projects,
-    ],
-  );
 
   const loadData = useCallback(async () => {
     try {
@@ -113,22 +60,25 @@ const GitProfile = ({ config }: { config: Config }) => {
         location: data.location || '',
         company: data.company || '',
       });
-
-      if (!sanitizedConfig.projects.github.display) {
-        return;
-      }
-
-      setGithubProjects(await getGithubProjects(data.public_repos));
     } catch (error) {
-      handleError(error as AxiosError | Error);
+      // If GitHub API fails (rate limit or other errors), use fallback profile
+      console.warn('GitHub API error, using fallback profile:', error);
+      setProfile({
+        avatar: '/portfolio/default-avatar.png', // You can add a default avatar
+        name: 'Nishant Gupta',
+        bio: 'Senior DevOps Engineer | GCP Professional Cloud Architect',
+        location: 'India',
+        company: 'UKG',
+      });
+
+      // Only show error page for critical errors, not rate limiting
+      if (error instanceof AxiosError && error.response?.status !== 403 && error.response?.status !== 429) {
+        handleError(error as AxiosError | Error);
+      }
     } finally {
       setLoading(false);
     }
-  }, [
-    sanitizedConfig.github.username,
-    sanitizedConfig.projects.github.display,
-    getGithubProjects,
-  ]);
+  }, [sanitizedConfig.github.username]);
 
   useEffect(() => {
     if (Object.keys(sanitizedConfig).length === 0) {
@@ -194,18 +144,23 @@ const GitProfile = ({ config }: { config: Config }) => {
               googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
               appliedTheme={theme}
             />
-            <div className={`p-4 lg:p-10 min-h-full ${BG_COLOR}`}>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
+            <div className={`p-4 lg:p-8 min-h-screen ${BG_COLOR}`}>
+              <div className="max-w-7xl mx-auto">
+                {/* Full-Width Hero Banner */}
+                <div className="mb-8">
+                  <HeroBanner />
+                </div>
+
+                {/* Achievements Section */}
+                <div className="mb-8">
+                  <AchievementsSection loading={loading} />
+                </div>
+
+                {/* Main Two-Column Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                {/* Left Column - Profile & Contact */}
                 <div className="col-span-1">
                   <div className="grid grid-cols-1 gap-6">
-                    {!sanitizedConfig.themeConfig.disableSwitch && (
-                      <ThemeChanger
-                        theme={theme}
-                        setTheme={setTheme}
-                        loading={loading}
-                        themeConfig={sanitizedConfig.themeConfig}
-                      />
-                    )}
                     <AvatarCard
                       profile={profile}
                       loading={loading}
@@ -224,64 +179,45 @@ const GitProfile = ({ config }: { config: Config }) => {
                         skills={sanitizedConfig.skills}
                       />
                     )}
-                    {sanitizedConfig.experiences.length !== 0 && (
-                      <ExperienceCard
-                        loading={loading}
-                        experiences={sanitizedConfig.experiences}
-                      />
-                    )}
+                    {/* About Section */}
+                    <AboutSection />
+                  </div>
+                </div>
+
+                {/* Right Column - Projects & Content */}
+                <div className="lg:col-span-2 col-span-1">
+                  <div className="grid grid-cols-1 gap-6">
+                    {/* Projects Showcase */}
+                    <ProjectsShowcase loading={loading} />
+
+                    {/* Certification Showcase */}
                     {sanitizedConfig.certifications.length !== 0 && (
-                      <CertificationCard
+                      <CertificationShowcase
                         loading={loading}
                         certifications={sanitizedConfig.certifications}
                       />
                     )}
-                    {sanitizedConfig.educations.length !== 0 && (
-                      <EducationCard
+
+                    {/* Professional Timeline */}
+                    {(sanitizedConfig.experiences.length !== 0 ||
+                      sanitizedConfig.educations.length !== 0) && (
+                      <ProfessionalTimeline
                         loading={loading}
+                        experiences={sanitizedConfig.experiences}
                         educations={sanitizedConfig.educations}
                       />
                     )}
                   </div>
                 </div>
-                <div className="lg:col-span-2 col-span-1">
-                  <div className="grid grid-cols-1 gap-6">
-                    {sanitizedConfig.projects.github.display && (
-                      <GithubProjectCard
-                        header={sanitizedConfig.projects.github.header}
-                        limit={sanitizedConfig.projects.github.automatic.limit}
-                        githubProjects={githubProjects}
-                        loading={loading}
-                        username={sanitizedConfig.github.username}
-                        googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
-                      />
-                    )}
-                    {sanitizedConfig.publications.length !== 0 && (
-                      <PublicationCard
-                        loading={loading}
-                        publications={sanitizedConfig.publications}
-                      />
-                    )}
-                    {sanitizedConfig.projects.external.projects.length !==
-                      0 && (
-                      <ExternalProjectCard
-                        loading={loading}
-                        header={sanitizedConfig.projects.external.header}
-                        externalProjects={
-                          sanitizedConfig.projects.external.projects
-                        }
-                        googleAnalyticId={sanitizedConfig.googleAnalytics.id}
-                      />
-                    )}
-                    {sanitizedConfig.blog.display && (
-                      <BlogCard
-                        loading={loading}
-                        googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
-                        blog={sanitizedConfig.blog}
-                      />
-                    )}
-                  </div>
-                </div>
+              </div>
+
+              {/* Full-Width Contact Section */}
+              <div className="mb-8">
+                <ContactSection
+                  social={sanitizedConfig.social}
+                  resumeUrl={sanitizedConfig.resume.fileUrl}
+                />
+              </div>
               </div>
             </div>
             {sanitizedConfig.footer && (

@@ -29,31 +29,46 @@ const CONFIG = {
       },
     },
     external: {
-      // header: '',
-      // // To hide the `External Projects` section, keep it empty.
-      // projects: [
-      //   {
-      //     title: '',
-      //     description:
-      //       '',
-      //     imageUrl:
-      //       '',
-      //     link: '',
-      //   },
-      //   {
-      //     title: '',
-      //     description:
-      //       '',
-      //     imageUrl:
-      //       '',
-      //     link: '',
-      //   },
-      // ],
+      header: 'Featured DevOps Projects',
+      projects: [
+        {
+          title: 'Enterprise Kubernetes Platform',
+          description:
+            'Architected production Kubernetes clusters across AWS EKS, GCP GKE, and Azure AKS. Implemented auto-scaling, service mesh with Istio, and monitoring with Prometheus/Grafana. Managed 100+ microservices with 99.9% uptime.',
+          imageUrl:
+            'https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.png',
+          link: 'https://github.com/nishantg98',
+        },
+        {
+          title: 'Zero-Downtime CI/CD Pipeline',
+          description:
+            'Built enterprise CI/CD pipelines using Jenkins and GitHub Actions, reducing deployment time by 70%. Integrated automated testing, security scanning, and blue-green deployments for 1M+ users.',
+          imageUrl:
+            'https://www.jenkins.io/images/logos/jenkins/jenkins.png',
+          link: 'https://github.com/nishantg98',
+        },
+        {
+          title: 'Multi-Cloud IaC Framework',
+          description:
+            'Created reusable Terraform modules and Ansible playbooks for AWS, GCP, and Azure. Standardized deployment across 50+ environments, reducing provisioning time from days to hours.',
+          imageUrl:
+            'https://www.datocms-assets.com/2885/1620155116-brandhcterraformverticalcolor.svg',
+          link: 'https://github.com/nishantg98',
+        },
+        {
+          title: 'Unified Observability Platform',
+          description:
+            'Designed observability solution with Prometheus, Grafana, ELK Stack, and Jaeger. Built custom dashboards for SLA monitoring. Reduced MTTR by 60% through intelligent alerting.',
+          imageUrl:
+            'https://grafana.com/static/img/logos/grafana_logo.svg',
+          link: 'https://github.com/nishantg98',
+        },
+      ],
     },
   },
   seo: {
-    title: 'Portfolio of Nishant Gupta',
-    description: '',
+    title: 'Nishant Gupta - Senior DevOps Engineer | GCP Professional Cloud Architect',
+    description: 'Senior DevOps Engineer with 5+ years building enterprise cloud infrastructure. GCP Professional Cloud Architect. Expert in Kubernetes, AWS, Azure, Terraform, and CI/CD automation at scale.',
     imageURL: '',
   },
   social: {
@@ -76,59 +91,101 @@ const CONFIG = {
     email: 'nishantg2798@gmail.com',
   },
   resume: {
-    fileUrl:
-      '', // Empty fileUrl will hide the `Download Resume` button.
+    fileUrl: '/portfolio/Resume.pdf', // Resume available for download
   },
   skills: [
-    'Docker',
     'Kubernetes',
+    'Docker',
     'AWS',
+    'Google Cloud Platform',
     'Microsoft Azure',
-    'GCP',
-    'Python',
-    'MySQL',
     'Terraform',
-    'Git',
-    'C++',
-    'Jenkins',
-    'GitHub Action',
-    'CI/CD',
     'Ansible',
+    'Jenkins',
+    'GitHub Actions',
+    'GitLab CI',
+    'CI/CD',
+    'ArgoCD',
+    'Helm',
+    'Prometheus',
+    'Grafana',
+    'ELK Stack',
+    'Python',
+    'Bash',
+    'Go',
+    'Git',
+    'Linux',
+    'Nginx',
+    'PostgreSQL',
+    'MySQL',
+    'Redis',
+    'MongoDB',
   ],
   experiences: [
     {
-      company: 'Successive Digital',
-      position: 'Associate DevOps Engineer',
-      from: 'March 2024',
+      company: 'UKG',
+      position: 'Senior DevOps Engineer',
+      from: 'June 2025',
       to: 'Present',
-      companyLink: 'https://successive.tech',
+      companyLink: 'https://www.ukg.com/',
     },
     {
       company: 'Successive Digital',
       position: 'Associate DevOps Engineer',
       from: 'October 2020',
-      to: 'August 2022',
+      to: 'May 2025',
       companyLink: 'https://successive.tech',
     },
   ],
   certifications: [
     {
-      name: 'Harshicorp Certified - Terraform Associate (003)',
-      body: '',
+      name: 'GCP - Professional Cloud Architect',
+      body: 'Design, develop, and manage robust, secure, scalable, highly available, and dynamic solutions to drive business objectives.',
+      year: 'Feb 2026',
+      link: 'https://www.credly.com/badges/ab415edd-64dc-442a-909f-265e11f39a2e/public_url',
+      badge: '/portfolio/professional-cloud-architect-certification.png',
+    },
+    {
+      name: 'GCP - Associate Cloud Engineer',
+      body: 'Deploy applications, monitor operations, and manage enterprise solutions on Google Cloud Platform.',
+      year: 'Feb 2025',
+      link: 'https://www.credly.com/badges/d27e0eff-41d7-4701-a7e3-3a42903bd859/public_url',
+      badge: '/portfolio/associate-cloud-engineer-certification.png',
+    },
+    {
+      name: 'GCP - Cloud Digital Leader',
+      body: 'Understand cloud computing basics, Google Cloud products and services, and their business value.',
+      year: 'Jan 2026',
+      link: 'https://www.credly.com/badges/b8f5ef7f-2c50-4cc6-a4c9-bb791b906a05/public_url',
+      badge: '/portfolio/cloud-digital-leader-certification.png',
+    },
+    {
+      name: 'HashiCorp Certified - Terraform Associate (003)',
+      body: 'Understand Infrastructure as Code (IaC) concepts and Terraform fundamentals for cloud provisioning.',
       year: 'Jul 2024',
       link: 'https://www.credly.com/badges/6a5713e7-4b19-4b8f-b76b-c5bec22cd324/public_url',
+      badge: '/portfolio/hashicorp-certified-terraform-associate-003.png',
     },
     {
       name: 'AWS Certified Cloud Practitioner',
-      body: '',
+      body: 'Foundational understanding of AWS Cloud concepts, services, and terminology.',
       year: 'Apr 2024',
       link: 'https://www.credly.com/badges/527bf7b0-2888-4413-9773-dc414524a3fd/public_url',
+      badge: '/portfolio/aws-certified-cloud-practitioner.png',
+    },
+    {
+      name: 'GitHub Foundations',
+      body: 'Foundational knowledge of GitHub products, collaboration features, and development workflows.',
+      year: 'Nov 2024',
+      link: 'https://www.credly.com/badges/5a3a93f6-eb08-4258-8d3e-eee124d77ee0/public_url',
+      badge: '/portfolio/github-foundations.png',
     },
     {
       name: 'Microsoft Azure Fundamentals (AZ-900)',
-      body: '',
+      body: 'Understanding of cloud concepts and core Azure services, security, privacy, compliance, and trust.',
       year: 'Feb 2023',
       link: 'https://www.credly.com/badges/2377fc5e-0b92-42ef-83fc-324637d5a102/public_url',
+      badge: '/portfolio/microsoft-certified-azure-fundamentals.png',
     },
   ],
   educations: [
@@ -145,26 +202,7 @@ const CONFIG = {
       to: '2020',
     },
   ],
-  publications: [
-    {
-      title: '',
-      conferenceName: '',
-      journalName: 'Journal Name',
-      authors: 'John Doe, Jane Smith',
-      link: 'https://example.com',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-    {
-      title: '',
-      conferenceName: 'Conference Name',
-      journalName: '',
-      authors: 'John Doe, Jane Smith',
-      link: 'https://example.com',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-  ],
+  publications: [],
   // Display articles from your medium or dev account. (Optional)
   blog: {
     source: 'medium', // medium | dev
@@ -180,7 +218,7 @@ const CONFIG = {
     snippetVersion: 6,
   },
   themeConfig: {
-    defaultTheme: 'lofi',
+    defaultTheme: 'business',
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
@@ -197,48 +235,28 @@ const CONFIG = {
     themes: [
       'light',
       'dark',
-      'cupcake',
-      'bumblebee',
-      'emerald',
-      'corporate',
-      'synthwave',
-      'retro',
-      'cyberpunk',
-      'valentine',
-      'halloween',
-      'garden',
-      'forest',
-      'aqua',
-      'lofi',
-      'pastel',
-      'fantasy',
-      'wireframe',
-      'black',
-      'luxury',
-      'dracula',
-      'cmyk',
-      'autumn',
       'business',
-      'acid',
-      'lemonade',
+      'corporate',
+      'dracula',
       'night',
-      'coffee',
-      'winter',
+      'luxury',
       'dim',
       'nord',
       'sunset',
+      'cyberpunk',
+      'synthwave',
       'procyon',
     ],
 
-    // Custom theme, applied to `procyon` theme
+    // Custom theme for DevOps professional look, applied to `procyon` theme
     customTheme: {
-      primary: '#fc055b',
-      secondary: '#219aaf',
-      accent: '#e8d03a',
-      neutral: '#2A2730',
-      'base-100': '#E3E3ED',
-      '--rounded-box': '3rem',
-      '--rounded-btn': '3rem',
+      primary: '#0EA5E9', // Sky blue - representing cloud
+      secondary: '#10B981', // Green - representing success/automation
+      accent: '#F59E0B', // Amber - representing alerts/monitoring
+      neutral: '#1F2937', // Dark gray
+      'base-100': '#FFFFFF', // White background
+      '--rounded-box': '0.5rem',
+      '--rounded-btn': '0.375rem',
     },
   },
   enablePWA: true,
