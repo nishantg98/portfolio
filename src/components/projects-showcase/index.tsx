@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
+import { FaGithub, FaCode } from 'react-icons/fa';
 import { SiKubernetes, SiTerraform, SiDocker, SiJenkins, SiPrometheus, SiAnsible } from 'react-icons/si';
 import { skeleton } from '../../utils';
 

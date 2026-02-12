@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaDocker, FaAws, FaGithub, FaDownload, FaBriefcase } from 'react-icons/fa';
+import { FaDocker, FaAws, FaGithub, FaDownload } from 'react-icons/fa';
 import { SiKubernetes, SiTerraform, SiGooglecloud, SiMicrosoftazure, SiPrometheus } from 'react-icons/si';
 
 const HeroBanner: React.FC = () => {
